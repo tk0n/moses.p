@@ -5,6 +5,7 @@
 ark_dir=$(locate -b '\ark-node')
 network=$(cd $ark_dir && git symbolic-ref --short -q HEAD)
 snapshot_dir=~/snapshots
+snapshooter_dir=~/ARK-Snapshooter
 
 # Step 2: Create New Snapshot
 
@@ -14,4 +15,4 @@ pg_dump -Fc ark_${network} > latest
 # Step 3: Remove Old Snapshot
 
 rm -f current
-ls -ltr | awk '{ field = $NF }; END{ print field }' | xargs -I '{}' mv '{}' current
+mv "${snapshooter_dir}/latest" "${snapshooter_dir}/current"
