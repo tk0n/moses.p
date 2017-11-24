@@ -22,9 +22,9 @@ CRONJOB="*/15 * * * * ${snapshooter_dir}/snapshooter.sh >> ${snapshooter_dir}/sn
 # Step 5: Create nginx virtual-host
 
 vhost='/etc/nginx/sites-available/default'
-search='root /var/www/html;'
-replace='root /home/ark/snapshots;'
-sed -i "" "s|${search}|${replace}|g" $vhost
+search=$(echo 'root /var/www/html;' | sed 's/\//\\\//g')
+replace=$(echo 'root /home/ark/snapshots;' | sed 's/\//\\\//g')
+sudo sed -i -e "s/${search}/${replace}/g" $vhost
 
 # Step 6: Restart nginx
 
