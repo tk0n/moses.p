@@ -4,11 +4,11 @@
 
 ark_dir=$(locate -b '\ark-node')
 network=$(cd $ark_dir && git symbolic-ref --short -q HEAD)
-snapshooter_dir=$(locate -b '\ARK-Snapshooter')
+snapshot_dir=~/snapshots
 
 # Step 2: Create New Snapshot
 
-cd $snapshooter_dir
+cd $snapshot_dir
 pg_dump -Fc ark_${network} > latest
 
 # Step 3: Remove Old Snapshot
