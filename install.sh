@@ -12,7 +12,7 @@ fi
 
 # Step 3: Move ownership to current user
 
-sudo chown -R $USER /var/www/
+sudo chown -R $USER /var/www
 rm -f /var/www/html/*
 
 # Step 4: Add nginx to ufw
