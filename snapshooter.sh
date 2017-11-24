@@ -9,7 +9,7 @@ snapshooter_dir=$(locate -b '\ARK-Snapshooter')
 # Step 2: Create New Snapshot
 
 cd $snapshooter_dir
-pg_dump -Fc ark_{$network} > latest
+pg_dump -Fc ark_${network} > latest
 
 # Step 3: Remove Old Snapshot
 
