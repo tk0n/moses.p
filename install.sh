@@ -2,7 +2,7 @@
 
 # Step 1: Declare Variables
 
-snapshooter_dir=$(locate -b '\ARK-Snapshooter')
+snapshooter_dir=$(pwd)
 
 # Step 2: Install nginx
 
