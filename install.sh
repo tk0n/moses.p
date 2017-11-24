@@ -23,7 +23,7 @@ CRONJOB="*/15 * * * * ${snapshooter_dir}/snapshooter.sh >> ${snapshooter_dir}/sn
 
 vhost='/etc/nginx/sites-available/default'
 search=$(echo 'root /var/www/html;' | sed 's/\//\\\//g')
-replace=$(echo 'root /home/ark/snapshots;' | sed 's/\//\\\//g')
+replace=$(echo "root /home/$USER/snapshots;" | sed 's/\//\\\//g')
 sudo sed -i -e "s/${search}/${replace}/g" $vhost
 
 # Step 6: Restart nginx
