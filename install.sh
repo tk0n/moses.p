@@ -10,25 +10,28 @@ if [[ -z $(command -v nginx) ]]; then
     sudo apt-get install nginx
 fi
 
-# Step 3: Make ARK-Snapshooter executable
+# Step 3: Move ownership to current user
+
+sudo chown -R $USER /var/www/
+rm -f /var/www/html/*
+
+# Step 4: Add nginx to ufw
+
+if [[ $(command -v ufw) ]]; then
+    sudo ufw disable
+    sudo ufw allow 'Nginx HTTP'
+    sudo ufw enable
+fi
+
+# Step 5: Restart nginx
+
+sudo service nginx restart
+
+# Step 6: Make ARK-Snapshooter executable
 
 chmod +x ${snapshooter_dir}/snapshooter.sh
 
-# Step 4: Create Cronjob
+# Step 7: Create Cronjob
 CRONJOB="*/15 * * * * ${snapshooter_dir}/snapshooter.sh >> ${snapshooter_dir}/snapshooter.log 2>&1"
 
 (crontab -l | grep -v -F "${CRONJOB}" ; echo "${CRONJOB}") | crontab -
-
-# Step 5: Create nginx virtual-host
-
-vhost='/etc/nginx/sites-available/default'
-search=$(echo 'root /var/www/html;' | sed 's/\//\\\//g')
-replace=$(echo "root /home/$USER/snapshots;" | sed 's/\//\\\//g')
-sudo sed -i -e "s/${search}/${replace}/g" $vhost
-
-# Step 6: Restart nginx
-
-sudo ufw disable
-sudo ufw allow 'Nginx HTTP'
-sudo ufw enable
-sudo service nginx restart

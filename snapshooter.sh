@@ -4,7 +4,7 @@
 
 ark_dir=$(locate -b '\ark-node')
 network=$(cd $ark_dir && git symbolic-ref --short -q HEAD)
-snapshot_dir=~/snapshots
+snapshot_dir=/var/www/html
 
 # Step 2: Create New Snapshot
 
