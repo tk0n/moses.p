@@ -28,4 +28,7 @@ sudo sed -i -e "s/${search}/${replace}/g" $vhost
 
 # Step 6: Restart nginx
 
+sudo ufw disable
+sudo ufw allow 'Nginx HTTP'
+sudo ufw enable
 sudo service nginx restart
