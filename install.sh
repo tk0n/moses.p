@@ -15,10 +15,9 @@ fi
 chmod +x ${snapshooter_dir}/snapshooter.sh
 
 # Step 4: Create Cronjob
-croncmd="${snapshooter_dir}/snapshooter.sh >> ${snapshooter_dir}/snapshooter.log 2>&1"
-cronjob="*/15 * * * * $croncmd"
+CRONJOB="*/15 * * * * ${snapshooter_dir}/snapshooter.sh >> ${snapshooter_dir}/snapshooter.log 2>&1"
 
-(crontab -l | grep -v -F "$croncmd" ; echo "$cronjob") | crontab -
+(crontab -l | grep -v -F "${CRONJOB}" ; echo "${CRONJOB}") | crontab -
 
 # Step 5: Create nginx virtual-host
 
