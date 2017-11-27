@@ -25,7 +25,7 @@ snapshooter_tail()
 
 snapshooter_update()
 {
-    local remote_version=$(git rev-parse origin/release)
+    local remote_version=$(git rev-parse origin/master)
     local local_version=$(git rev-parse HEAD)
 
     if [[ $remote_version == $local_version ]]; then
