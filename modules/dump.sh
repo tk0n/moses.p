@@ -16,5 +16,5 @@ snapshooter_dump()
     mv latest $current_file
 
     # delete all but the 10 recent snapshots
-    ls -r | tail -n +10 | xargs rm
+    ls -r | tail -n +$snapshot_amount | xargs rm
 }

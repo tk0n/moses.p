@@ -26,3 +26,5 @@ network=$(cd $ark_dir && git symbolic-ref --short -q HEAD)
 # -------------------------
 
 snapshot_dir=/var/www/html
+snapshot_amount=10
+snapshot_interval='*/15 * * * *'
