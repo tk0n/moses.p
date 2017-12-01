@@ -13,9 +13,10 @@
 # Required Variables
 # -------------------------
 
-# snapshooter=$(basename "$0")
+snapshooter=$(basename "$0")
 snapshooter_dir="${HOME}/ARK-Snapshooter"
 snapshooter_log="${snapshooter_dir}/snapshooter.log"
+. "$snapshooter_dir/variables.sh"
 
 # -------------------------
 # Modules

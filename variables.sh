@@ -10,9 +10,13 @@
 # ---------------------------------------------------------------------------
 
 # -------------------------
-# Snapshot
+# ARK
 # -------------------------
 
-snapshot_dir=/var/www/html
-snapshot_amount=10
-snapshot_interval='*/15 * * * *'
+ark_dir=$(locate -b '\ark-node')
+
+# -------------------------
+# Network
+# -------------------------
+
+network=$(cd $ark_dir && git symbolic-ref --short -q HEAD)
