@@ -23,7 +23,7 @@ snapshooter_install()
 
     if [[ -z $(command -v nginx) ]]; then
         heading "Installing nginx..."
-        sudo apt-get install nginx
+        sudo apt-get install nginx -y
         sudo chown -R $USER /var/www
         rm -f /var/www/html/*
         success "Installation OK."

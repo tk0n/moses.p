@@ -35,7 +35,8 @@ snapshooter_update()
 
         if [[ $choice =~ ^(yes|y) ]]; then
             heading 'Updating ARK Snapshooter...'
-            git pull
+            git reset --hard >> $snapshooter_log 2>&1
+            git pull >> $snapshooter_log 2>&1
             success 'Update OK!'
         else
             abort 1 "Aborting..."
