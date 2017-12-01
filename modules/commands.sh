@@ -43,6 +43,14 @@ snapshooter_update()
     fi
 }
 
+snapshooter_alias()
+{
+    heading "Installing alias..."
+    echo "alias snapshooter='bash ${snapshooter_dir}/snapshooter.sh'" | tee -a ~/.bashrc
+    source ${HOME}/.bashrc
+    success "Installation complete!"
+}
+
 snapshooter_version()
 {
     echo $(git rev-parse HEAD)
