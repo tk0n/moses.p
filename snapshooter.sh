@@ -1,17 +1,48 @@
 #!/usr/bin/env bash
 
-# Step 1: Declare Variables
+# ---------------------------------------------------------------------------
+# This file is part of ARK Snapshooter.
+#
+# (c) Brian Faust <hello@brianfaust.me>
+#
+# For the full copyright and license information, please view the LICENSE
+# file that was distributed with this source code.
+# ---------------------------------------------------------------------------
 
-ark_dir=$(locate -b '\ark-node')
-network=$(cd $ark_dir && git symbolic-ref --short -q HEAD)
-snapshot_dir=/var/www/html
+# -------------------------
+# Required Variables
+# -------------------------
 
-# Step 2: Create New Snapshot
+snapshooter=$(basename "$0")
+snapshooter_dir="${HOME}/ARK-Snapshooter"
+snapshooter_log="${snapshooter_dir}/snapshooter.log"
+. "$snapshooter_dir/variables.sh"
 
-cd $snapshot_dir
-pg_dump -Fc ark_${network} > latest
+# -------------------------
+# Modules
+# -------------------------
 
-# Step 3: Remove Old Snapshot
+. "$snapshooter_dir/modules/colours.sh"
+. "$snapshooter_dir/modules/errors.sh"
+. "$snapshooter_dir/modules/bootstrap.sh"
+. "$snapshooter_dir/modules/config.sh"
+. "$snapshooter_dir/modules/dump.sh"
+. "$snapshooter_dir/modules/commands.sh"
+. "$snapshooter_dir/modules/install.sh"
+. "$snapshooter_dir/modules/args.sh"
 
-rm -f current
-mv latest current
+# -------------------------
+# Start
+# -------------------------
+
+function main()
+{
+    setup_environment
+    check_configuration
+
+    parse_args "$@"
+
+    trap cleanup SIGINT SIGTERM SIGKILL
+}
+
+main "$@"
