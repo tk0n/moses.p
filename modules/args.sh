@@ -30,6 +30,9 @@ parse_args()
         log)
             snapshooter_tail
         ;;
+        alias)
+            snapshooter_alias
+        ;;
         version)
             snapshooter_version
             exit 1

@@ -63,10 +63,12 @@ Usage: $snapshooter [options]
 options:
     help                      Show this help.
     version                   Show the installed version.
+    dump                      Create a new snapshot.
     install                   Install snapshooter.
     uninstall                 Uninstall snapshooter.
     update                    Update snapshooter.
     config                    Configure snapshooter.
+    alias                     Create a bash alias for ARK-Snapshooter.
     log                       Show the snapshooter log.
 EOF
 }
