@@ -40,7 +40,7 @@ snapshooter_install()
     fi
 
     heading "Installing Crontab..."
-    CRONJOB="${snapshot_interval} ${snapshooter_dir}/snapshooter.sh >> ${snapshooter_dir}/snapshooter.log 2>&1"
+    CRONJOB="${snapshot_interval} ${snapshooter_dir}/snapshooter.sh dump >> ${snapshooter_dir}/snapshooter.log 2>&1"
     (crontab -l | grep -v -F "${CRONJOB}" ; echo "${CRONJOB}") | crontab -
     success "Installation OK."
 
