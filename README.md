@@ -5,7 +5,7 @@
 ```bash
 git clone https://github.com/faustbrian/ARK-Snapshooter
 cd ~/ARK-Snapshooter
-bash install.sh
+bash snapshooter.sh install
 ```
 
 ## Security
