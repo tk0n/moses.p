@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to `ARK-Moses` will be documented in this file
+All notable changes to `moses` will be documented in this file
 
 ## 1.0.1 - 2017-12-06
 

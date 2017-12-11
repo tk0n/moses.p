@@ -111,7 +111,7 @@ options:
     uninstall                 Uninstall moses.
     update                    Update moses.
     config                    Configure moses.
-    alias                     Create a bash alias for ARK-Moses.
+    alias                     Create a bash alias for moses.
     log                       Show the moses log.
 EOF
 }
