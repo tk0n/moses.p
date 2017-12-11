@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # ---------------------------------------------------------------------------
-# This file is part of ARK Snapshooter.
+# This file is part of ARK Moses.
 #
 # (c) Brian Faust <hello@brianfaust.me>
 #
@@ -9,15 +9,15 @@
 # file that was distributed with this source code.
 # ---------------------------------------------------------------------------
 
-snapshooter_install()
+moses_install()
 {
     heading "Starting Installation..."
 
-    if [ -f ${snapshooter_dir}/.snapshooter ]; then
+    if [ -f ${moses_dir}/.moses ]; then
         info "Configuration already exists..."
     else
         heading "Installing Configuration..."
-        cp ${snapshooter_dir}/.snapshooter.example ${snapshooter_dir}/.snapshooter;
+        cp ${moses_dir}/.moses.example ${moses_dir}/.moses;
         success "Installation OK."
     fi
 
@@ -40,12 +40,12 @@ snapshooter_install()
     fi
 
     heading "Installing Crontab..."
-    CRONJOB="${snapshot_interval} ${snapshooter_dir}/snapshooter.sh dump >> ${snapshooter_dir}/snapshooter.log 2>&1"
+    CRONJOB="${snapshot_interval} ${moses_dir}/moses.sh dump >> ${moses_dir}/moses.log 2>&1"
     (crontab -l | grep -v -F "${CRONJOB}" ; echo "${CRONJOB}") | crontab -
     success "Installation OK."
 
-    heading "Installing ARK Snapshooter..."
-    chmod +x ${snapshooter_dir}/snapshooter.sh
+    heading "Installing ARK Moses..."
+    chmod +x ${moses_dir}/moses.sh
     success "Installation OK."
 
     success "Installation complete!"

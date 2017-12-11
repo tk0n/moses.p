@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-snapshooter_dump()
+moses_dump()
 {
     cd $snapshot_dir
 

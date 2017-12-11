@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # ---------------------------------------------------------------------------
-# This file is part of ARK Snapshooter.
+# This file is part of ARK Moses.
 #
 # (c) Brian Faust <hello@brianfaust.me>
 #
@@ -9,7 +9,7 @@
 # file that was distributed with this source code.
 # ---------------------------------------------------------------------------
 
-snapshooter_uninstall()
+moses_uninstall()
 {
     # ...
 }

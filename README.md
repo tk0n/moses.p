@@ -1,11 +1,11 @@
-# ARK Snapshooter ~ Automated Snapshots for [ArkEcosystem/ark-node](https://github.com/ArkEcosystem/ark-node)
+# ARK Moses ~ Automated Snapshots for [ArkEcosystem/ark-node](https://github.com/ArkEcosystem/ark-node)
 
 ## Installation
 
 ```bash
-git clone https://github.com/faustbrian/ARK-Snapshooter
-cd ~/ARK-Snapshooter
-bash snapshooter.sh install
+git clone https://github.com/faustbrian/ARK-Moses
+cd ~/ARK-Moses
+bash moses.sh install
 ```
 
 ## Security

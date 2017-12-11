@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # ---------------------------------------------------------------------------
-# This file is part of ARK Snapshooter.
+# This file is part of ARK Moses.
 #
 # (c) Brian Faust <hello@brianfaust.me>
 #
@@ -13,32 +13,32 @@ parse_args()
 {
     case "$1" in
         dump)
-            snapshooter_dump
+            moses_dump
         ;;
         install)
-            snapshooter_install
+            moses_install
         ;;
         uninstall)
-            snapshooter_uninstall
+            moses_uninstall
         ;;
         update)
-            snapshooter_update
+            moses_update
         ;;
         config)
-            snapshooter_config
+            moses_config
         ;;
         log)
-            snapshooter_tail
+            moses_tail
         ;;
         alias)
-            snapshooter_alias
+            moses_alias
         ;;
         version)
-            snapshooter_version
+            moses_version
             exit 1
         ;;
         help|*)
-            snapshooter_help
+            moses_help
             exit 1
         ;;
     esac

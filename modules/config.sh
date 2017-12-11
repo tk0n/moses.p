@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # ---------------------------------------------------------------------------
-# This file is part of ARK Snapshooter.
+# This file is part of ARK Moses.
 #
 # (c) Brian Faust <hello@brianfaust.me>
 #
@@ -11,14 +11,14 @@
 
 setup_environment()
 {
-    if [ ! -f ${snapshooter_dir}/.snapshooter ]; then
-        cp ${snapshooter_dir}/.snapshooter.example ${snapshooter_dir}/.snapshooter
+    if [ ! -f ${moses_dir}/.moses ]; then
+        cp ${moses_dir}/.moses.example ${moses_dir}/.moses
 
         warning "Yikes! A default configuration has been created, next you need to run the install command to get started."
     fi
 
-    if [[ -e ${snapshooter_dir}/.snapshooter ]]; then
-        . ${snapshooter_dir}/.snapshooter
+    if [[ -e ${moses_dir}/.moses ]]; then
+        . ${moses_dir}/.moses
     fi
 }
 

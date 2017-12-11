@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # ---------------------------------------------------------------------------
-# This file is part of ARK Snapshooter.
+# This file is part of ARK Moses.
 #
 # (c) Brian Faust <hello@brianfaust.me>
 #
@@ -13,23 +13,23 @@
 # Required Variables
 # -------------------------
 
-snapshooter=$(basename "$0")
-snapshooter_dir="${HOME}/ARK-Snapshooter"
-snapshooter_log="${snapshooter_dir}/snapshooter.log"
-. "$snapshooter_dir/variables.sh"
+moses=$(basename "$0")
+moses_dir="${HOME}/ARK-Moses"
+moses_log="${moses_dir}/moses.log"
+. "$moses_dir/variables.sh"
 
 # -------------------------
 # Modules
 # -------------------------
 
-. "$snapshooter_dir/modules/colours.sh"
-. "$snapshooter_dir/modules/errors.sh"
-. "$snapshooter_dir/modules/bootstrap.sh"
-. "$snapshooter_dir/modules/config.sh"
-. "$snapshooter_dir/modules/dump.sh"
-. "$snapshooter_dir/modules/commands.sh"
-. "$snapshooter_dir/modules/install.sh"
-. "$snapshooter_dir/modules/args.sh"
+. "$moses_dir/modules/colours.sh"
+. "$moses_dir/modules/errors.sh"
+. "$moses_dir/modules/bootstrap.sh"
+. "$moses_dir/modules/config.sh"
+. "$moses_dir/modules/dump.sh"
+. "$moses_dir/modules/commands.sh"
+. "$moses_dir/modules/install.sh"
+. "$moses_dir/modules/args.sh"
 
 # -------------------------
 # Start

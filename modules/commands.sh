@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # ---------------------------------------------------------------------------
-# This file is part of ARK Snapshooter.
+# This file is part of ARK Moses.
 #
 # (c) Brian Faust <hello@brianfaust.me>
 #
@@ -9,34 +9,34 @@
 # file that was distributed with this source code.
 # ---------------------------------------------------------------------------
 
-snapshooter_config()
+moses_config()
 {
-    nano ${snapshooter_dir}/.snapshooter
+    nano ${moses_dir}/.moses
 }
 
-snapshooter_tail()
+moses_tail()
 {
-    if [ ! -e $snapshooter_log ]; then
-        touch $snapshooter_log
+    if [ ! -e $moses_log ]; then
+        touch $moses_log
     fi
 
-    tail -f $snapshooter_log
+    tail -f $moses_log
 }
 
-snapshooter_update()
+moses_update()
 {
     local remote_version=$(git rev-parse origin/master)
     local local_version=$(git rev-parse HEAD)
 
     if [[ $remote_version == $local_version ]]; then
-        info 'You are already using the latest version of ARK Snapshooter.'
+        info 'You are already using the latest version of ARK Moses.'
     else
-        read -p 'An update for ARK Snapshooter is available, do you want to install it? [y/N] :' choice
+        read -p 'An update for ARK Moses is available, do you want to install it? [y/N] :' choice
 
         if [[ $choice =~ ^(yes|y) ]]; then
-            heading 'Updating ARK Snapshooter...'
-            git reset --hard >> $snapshooter_log 2>&1
-            git pull >> $snapshooter_log 2>&1
+            heading 'Updating ARK Moses...'
+            git reset --hard >> $moses_log 2>&1
+            git pull >> $moses_log 2>&1
             success 'Update OK!'
         else
             abort 1 "Aborting..."
@@ -44,32 +44,32 @@ snapshooter_update()
     fi
 }
 
-snapshooter_alias()
+moses_alias()
 {
     heading "Installing alias..."
-    echo "alias snapshooter='bash ${snapshooter_dir}/snapshooter.sh'" | tee -a ~/.bashrc
+    echo "alias moses='bash ${moses_dir}/moses.sh'" | tee -a ~/.bashrc
     source ${HOME}/.bashrc
     success "Installation complete!"
 }
 
-snapshooter_version()
+moses_version()
 {
     echo $(git rev-parse HEAD)
 }
 
-snapshooter_help()
+moses_help()
 {
     cat << EOF
-Usage: $snapshooter [options]
+Usage: $moses [options]
 options:
     help                      Show this help.
     version                   Show the installed version.
     dump                      Create a new snapshot.
-    install                   Install snapshooter.
-    uninstall                 Uninstall snapshooter.
-    update                    Update snapshooter.
-    config                    Configure snapshooter.
-    alias                     Create a bash alias for ARK-Snapshooter.
-    log                       Show the snapshooter log.
+    install                   Install moses.
+    uninstall                 Uninstall moses.
+    update                    Update moses.
+    config                    Configure moses.
+    alias                     Create a bash alias for ARK-Moses.
+    log                       Show the moses log.
 EOF
 }
