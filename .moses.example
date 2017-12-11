@@ -15,4 +15,4 @@
 
 snapshot_dir=/var/www/html
 snapshot_amount=10
-snapshot_interval='*/15 * * * *'
+snapshot_interval=900

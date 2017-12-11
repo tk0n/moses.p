@@ -12,6 +12,24 @@
 parse_args()
 {
     case "$1" in
+        start)
+            moses_start
+        ;;
+        stop)
+            moses_stop
+        ;;
+        restart)
+            moses_restart
+        ;;
+        reload)
+            moses_reload
+        ;;
+        delete)
+            moses_delete
+        ;;
+        schedule)
+            moses_schedule
+        ;;
         dump)
             moses_dump
         ;;

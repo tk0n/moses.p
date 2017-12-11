@@ -32,17 +32,14 @@ moses_install()
     fi
 
     if [[ $(command -v ufw) ]]; then
+        heading "Installing ufw rules..."
         sudo ufw disable
         sudo ufw allow 'Nginx HTTP'
         sudo ufw enable
+        success "Installation OK."
     else
         info "ufw doesn't exists..."
     fi
-
-    heading "Installing Crontab..."
-    CRONJOB="${snapshot_interval} ${moses_dir}/moses.sh dump >> ${moses_dir}/moses.log 2>&1"
-    (crontab -l | grep -v -F "${CRONJOB}" ; echo "${CRONJOB}") | crontab -
-    success "Installation OK."
 
     heading "Installing ARK Moses..."
     chmod +x ${moses_dir}/moses.sh

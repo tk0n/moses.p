@@ -9,6 +9,41 @@
 # file that was distributed with this source code.
 # ---------------------------------------------------------------------------
 
+moses_start()
+{
+    heading "Starting moses..."
+    pm2 start ${moses_dir}/apps.json >> $moses_log 2>&1
+    success "Start complete!"
+}
+
+moses_stop()
+{
+    heading "Stopping moses..."
+    pm2 stop ${moses_dir}/apps.json >> $moses_log 2>&1
+    success "Stop complete!"
+}
+
+moses_restart()
+{
+    heading "Restarting moses..."
+    pm2 restart ${moses_dir}/apps.json >> $moses_log 2>&1
+    success "Restart complete!"
+}
+
+moses_reload()
+{
+    heading "Reloading moses..."
+    pm2 reload ${moses_dir}/apps.json >> $moses_log 2>&1
+    success "Reload complete!"
+}
+
+moses_delete()
+{
+    heading "Deleting moses..."
+    pm2 delete ${moses_dir}/apps.json >> $moses_log 2>&1
+    success "Delete complete!"
+}
+
 moses_config()
 {
     nano ${moses_dir}/.moses
@@ -35,8 +70,10 @@ moses_update()
 
         if [[ $choice =~ ^(yes|y) ]]; then
             heading 'Updating ARK Moses...'
+            moses_stop
             git reset --hard >> $moses_log 2>&1
             git pull >> $moses_log 2>&1
+            moses_start
             success 'Update OK!'
         else
             abort 1 "Aborting..."
@@ -64,7 +101,12 @@ Usage: $moses [options]
 options:
     help                      Show this help.
     version                   Show the installed version.
+    start                     Start the moses process.
+    stop                      Stop the moses process.
+    restart                   Restart the moses process.
+    reload                    Reload the moses process.
     dump                      Create a new snapshot.
+    schedule                  Create a new snapshot for the specified schedule.
     install                   Install moses.
     uninstall                 Uninstall moses.
     update                    Update moses.
