@@ -11,5 +11,9 @@
 
 moses_uninstall()
 {
-    # ...
+    heading "Starting Uninstallation..."
+    rm -rf $moses_dir
+    success "Uninstallation complete!"
+
+    exit 1
 }
