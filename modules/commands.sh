@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # ---------------------------------------------------------------------------
-# This file is part of ARK Moses.
+# This file is part of moses.
 #
 # (c) Brian Faust <hello@brianfaust.me>
 #
@@ -64,12 +64,12 @@ moses_update()
     local local_version=$(git rev-parse HEAD)
 
     if [[ $remote_version == $local_version ]]; then
-        info 'You are already using the latest version of ARK Moses.'
+        info 'You are already using the latest version of moses.'
     else
-        read -p 'An update for ARK Moses is available, do you want to install it? [y/N] :' choice
+        read -p 'An update for moses is available, do you want to install it? [y/N] :' choice
 
         if [[ $choice =~ ^(yes|y) ]]; then
-            heading 'Updating ARK Moses...'
+            heading 'Updating moses...'
             moses_stop
             git reset --hard >> $moses_log 2>&1
             git pull >> $moses_log 2>&1

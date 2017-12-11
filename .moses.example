@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # ---------------------------------------------------------------------------
-# This file is part of ARK Moses.
+# This file is part of moses.
 #
 # (c) Brian Faust <hello@brianfaust.me>
 #
