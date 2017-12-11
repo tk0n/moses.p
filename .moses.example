@@ -16,3 +16,13 @@
 snapshot_dir=/var/www/html
 snapshot_amount=10
 snapshot_interval=900
+
+# -------------------------
+# Snapshot - Remote
+# -------------------------
+
+snapshot_remote=false
+snapshot_remote_user=''
+snapshot_remote_host=''
+snapshot_remote_port=22
+snapshot_remote_identity_file=''
