@@ -41,9 +41,5 @@ moses_install()
         info "ufw doesn't exists..."
     fi
 
-    heading "Installing ARK Moses..."
-    chmod +x ${moses_dir}/moses.sh
-    success "Installation OK."
-
     success "Installation complete!"
 }
