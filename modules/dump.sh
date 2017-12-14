@@ -44,6 +44,9 @@ moses_dump()
     # delete all but the 10 recent snapshots
     ls -t | tail -n +$snapshot_amount | xargs rm --
 
+    # create the index file (bash was to cancer so we use python...)
+    python ${moses_dir}/scripts/index-dumps.py
+
     # check if we send the snapshot to a remote location
     if [[ $snapshot_remote = true ]]; then
         rsync --checksum --no-whole-file -v -e "ssh -p ${snapshot_remote_port} -i ${snapshot_remote_identity_file}" current "${snapshot_remote_user}@${snapshot_remote_host}:${snapshot_remote_directory}"
