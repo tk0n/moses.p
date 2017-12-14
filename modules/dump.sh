@@ -49,6 +49,6 @@ moses_dump()
 
     # check if we send the snapshot to a remote location
     if [[ $snapshot_remote = true ]]; then
-        rsync --checksum --no-whole-file -v -e "ssh -p ${snapshot_remote_port} -i ${snapshot_remote_identity_file}" current "${snapshot_remote_user}@${snapshot_remote_host}:${snapshot_remote_directory}"
+        rsync --checksum --no-whole-file -v -e "ssh -p ${snapshot_remote_port} -i ${snapshot_remote_identity_file}" $target_file "${snapshot_remote_user}@${snapshot_remote_host}:${snapshot_remote_directory}"
     fi
 }
