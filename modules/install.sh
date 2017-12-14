@@ -26,6 +26,7 @@ moses_install()
         sudo apt-get install nginx -y
         sudo chown -R $USER /var/www
         rm -f /var/www/html/*
+        sudo sed -i 's/index index.html index.htm index.nginx-debian.html;/index moses.json;/g' /etc/nginx/sites-available/default
         success "Installation OK."
     else
         info "nginx already exists..."
