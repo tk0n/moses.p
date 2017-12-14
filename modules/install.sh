@@ -43,7 +43,7 @@ moses_install()
 
     if [[ -z $(command -v jq) ]]; then
         heading "Installing jq..."
-        sudo apt-get -qq install jq >> $noah_log 2>&1
+        sudo apt-get -qq install jq
         success "Installation OK."
     else
         info "jq already exists..."
@@ -51,7 +51,7 @@ moses_install()
 
     if [[ -z $(command -v pm2) ]]; then
         heading "Installing pm2..."
-        npm install pm2 -g >> $noah_log 2>&1
+        npm install pm2 -g
         success "Installation OK."
     else
         info "pm2 already exists..."
