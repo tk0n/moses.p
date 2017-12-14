@@ -24,6 +24,12 @@ moses_dump()
     # create a new snapshot
     pg_dump -Fc ark_${network} > latest
 
+    # dump failed, exit so we don't overwrite the current one
+    if [ $? -ne 0 ]; then
+        error "Dump failed..."
+        return 1
+    fi
+
     # move old snapshot
     current_file=current # $(ls -t | head -n1)
     current_date=$(stat -c %Y $current_file)
