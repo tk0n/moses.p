@@ -24,8 +24,15 @@ moses_dump()
         port=4002
     fi
 
+    # get height and timestamp until the height is not empty anymore
     local height=$(curl "http://localhost:${port}/api/loader/status/sync" -s | jq .height)
     local timestamp=$(date +%s)
+
+    until [[ ! -z "$height" ]]; do
+        height=$(curl "http://localhost:${port}/api/loader/status/sync" -s | jq .height)
+        timestamp=$(date +%s)
+    done
+
     local target_file="${height}_${timestamp}"
 
     # go into the snapshot dir
