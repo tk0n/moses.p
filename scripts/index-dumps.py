@@ -1,8 +1,7 @@
 import os
 import json
 
-dumps=json.loads('{}')
-dumps['files'] = []
+dumps=json.loads('[]')
 
 for root, dirs, files in os.walk('/var/www/html'):
     for filename in files:
@@ -10,7 +9,7 @@ for root, dirs, files in os.walk('/var/www/html'):
             height=filename.split('_')[0]
             timestamp=filename.split('_')[1]
 
-            dumps['files'].append({
+            dumps.append({
                 'file': filename,
                 'size': os.path.getsize('/var/www/html/' + filename),
                 'height': height,
