@@ -45,7 +45,7 @@ moses_dump()
     ls -t | tail -n +$snapshot_amount | xargs rm --
 
     # create the index file (bash was to cancer so we use python...)
-    python ${moses_dir}/scripts/index-dumps.py
+    python "${moses_dir}/scripts/index-dumps.py"
 
     # check if we send the snapshot to a remote location
     if [[ $snapshot_remote = true ]]; then

@@ -17,5 +17,5 @@ for root, dirs, files in os.walk('/var/www/html'):
                 'timestamp': timestamp,
             })
 
-with open('/var/www/html/moses.json', 'w') as outfile:
+with open('/var/www/html/manifest', 'w') as outfile:
     json.dump(dumps, outfile)
