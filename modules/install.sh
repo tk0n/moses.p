@@ -35,6 +35,7 @@ moses_install()
         heading "Installing ufw rules..."
         sudo ufw disable
         sudo ufw allow 'Nginx HTTP'
+        sudo ufw allow ssh
         sudo ufw enable
         success "Installation OK."
     else
