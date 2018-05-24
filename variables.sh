@@ -10,13 +10,13 @@
 # ---------------------------------------------------------------------------
 
 # -------------------------
-# ARK
+# Persona
 # -------------------------
 
-ark_dir=$(locate -b '\ark-node')
+persona_dir=$(locate -b '\persona-mainnet')
 
 # -------------------------
 # Network
 # -------------------------
 
-network=$(cd $ark_dir && git symbolic-ref --short -q HEAD)
+network=$(cd $persona_dir && git symbolic-ref --short -q HEAD)
