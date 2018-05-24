@@ -14,7 +14,7 @@
 # -------------------------
 
 moses=$(basename "$0")
-moses_dir="${HOME}/moses"
+moses_dir="${HOME}/moses.p"
 moses_log="${moses_dir}/moses.log"
 . "$moses_dir/variables.sh"
 
