@@ -19,4 +19,4 @@ persona_dir=$(locate -b '\persona-mainnet')
 # Network
 # -------------------------
 
-network=$(cd $persona_dir && git symbolic-ref --short -q HEAD)
+network=$(cd $persona_dir && git symbolic-ref --short -q HEAD | sed 's/[^-]*-//')
