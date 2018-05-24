@@ -24,7 +24,7 @@ setup_environment()
 
 check_configuration()
 {
-    if [[ $network != 'persona_mainnet' && $network != 'persona_devnet' ]]; then
+    if [[ $network != 'persona-mainnet' && $network != 'persona-devnet' ]]; then
         abort 1 "network [$network] is invalid."
     fi
 }
