@@ -1,9 +1,9 @@
-# moses ~ Automated Snapshots for [ArkEcosystem/ark-node](https://github.com/ArkEcosystem/ark-node)
+# moses ~ Automated Snapshots for [PersonaIam/persona-mainnet](https://github.com/PersonaIam/persona-mainnet)
 
 ## Installation
 
 ```bash
-git clone https://github.com/faustbrian/moses
+git clone https://github.com/tk0n/moses.p
 cd ~/moses
 bash moses.sh install
 bash moses.sh start
