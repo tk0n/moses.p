@@ -1,7 +1,7 @@
 {
     "apps": [{
-        "name": "moses",
-        "script": "~/moses/moses.sh",
+        "name": "moses.p",
+        "script": "~/moses.p/moses.sh",
         "args": ["schedule"],
         "instances": 1,
         "exec_mode": "fork",
