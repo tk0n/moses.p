@@ -4,7 +4,7 @@
 
 ```bash
 git clone https://github.com/tk0n/moses.p
-cd ~/moses
+cd ~/moses.p
 bash moses.sh install
 bash moses.sh start
 ```
