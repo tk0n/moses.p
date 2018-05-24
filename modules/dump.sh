@@ -22,7 +22,7 @@ moses_dump()
     cd $snapshot_dir
 
     # create a new snapshot
-    pg_dump -Fc ark_${network} > latest
+    pg_dump -Fc persona_${network} > latest
 
     # move old snapshot
     current_file=current # $(ls -t | head -n1)
